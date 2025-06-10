@@ -18,13 +18,13 @@ namespace Wever_s_miniMarket
 
             ServiceCollection services = new ServiceCollection();
             services.AddSingleton<IConfiguration>(configuration);
-            services.AddTransient<Form1>();
+            services.AddTransient<Menufrm>();
 
             var serviceProvider = services.BuildServiceProvider();
             
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Menufrm());
         }
     }
 }
