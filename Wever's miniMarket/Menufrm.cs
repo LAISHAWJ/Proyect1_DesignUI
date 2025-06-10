@@ -21,14 +21,14 @@ namespace Wever_s_miniMarket
 
         private void BtProducts_Click(object sender, EventArgs e)
         {
-            ProductFrm formproduct = new ProductFrm();
+            var formproduct = _services.GetRequiredService<ProductFrm>();
             this.Hide();
             formproduct.Show();
         }
 
         private void BtSupplier_Click(object sender, EventArgs e)
         {
-            SupplierFrm formsupplier = new SupplierFrm();
+            var formsupplier = _services.GetRequiredService<SupplierFrm>();
             this.Hide();
             formsupplier.Show();
         }
