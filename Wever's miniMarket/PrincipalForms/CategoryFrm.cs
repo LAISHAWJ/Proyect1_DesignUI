@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wever_s_miniMarket.Repository;
 
 namespace Wever_s_miniMarket
 {
     public partial class CategoryFrm : Form
     {
-        public CategoryFrm()
+        private readonly CategoryRepos _categoryRepos;
+
+        public CategoryFrm(CategoryRepos categoryRepos)
         {
             InitializeComponent();
+            _categoryRepos = categoryRepos;
+        }
+
+        private void CategoryFrm_Load(object sender, EventArgs e)
+        {
+            var categoriadvw = _categoryRepos.GetCategorias();
+            CategoryDGV.DataSource = categoriadvw;
         }
     }
 }

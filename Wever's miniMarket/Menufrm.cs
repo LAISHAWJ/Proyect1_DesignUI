@@ -1,19 +1,22 @@
+using Microsoft.Extensions.DependencyInjection;
 using Wever_s_miniMarket.PrincipalForms;
 
 namespace Wever_s_miniMarket
 {
     public partial class Menufrm : Form
     {
-        public Menufrm()
+        private readonly IServiceProvider _services;
+        public Menufrm(IServiceProvider services)
         {
             InitializeComponent();
+            _services = services;
         }
 
         private void BtCategory_Click(object sender, EventArgs e)
         {
-            CategoryFrm formcategory = new CategoryFrm();
+            var categoryForm = _services.GetRequiredService<CategoryFrm>();
             this.Hide();
-            formcategory.Show();
+            categoryForm.Show();
         }
 
         private void BtProducts_Click(object sender, EventArgs e)

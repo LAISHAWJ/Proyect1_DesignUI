@@ -1,13 +1,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wever_s_miniMarket.PrincipalForms;
+using Wever_s_miniMarket.Repository;
 
 namespace Wever_s_miniMarket
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        
         [STAThread]
         static void Main()
         {
@@ -19,12 +19,18 @@ namespace Wever_s_miniMarket
             ServiceCollection services = new ServiceCollection();
             services.AddSingleton<IConfiguration>(configuration);
             services.AddTransient<Menufrm>();
+            services.AddTransient<CategoryRepos>();
+            services.AddTransient<CategoryFrm>();
+
+
 
             var serviceProvider = services.BuildServiceProvider();
-            
+
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Menufrm());
+
+            var mainForm = serviceProvider.GetService<Menufrm>();
+            Application.Run(mainForm);
         }
     }
 }
