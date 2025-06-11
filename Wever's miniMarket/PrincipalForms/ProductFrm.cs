@@ -26,5 +26,10 @@ namespace Wever_s_miniMarket.PrincipalForms
             var productodvw = _productRepos.GetProductos();
             ProductDGV.DataSource = productodvw;
         }
+
+        private void ProductDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

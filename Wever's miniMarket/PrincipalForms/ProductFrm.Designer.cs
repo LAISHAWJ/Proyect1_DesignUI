@@ -34,7 +34,7 @@
             ProductDGV = new DataGridView();
             panel3 = new Panel();
             menuStrip1 = new MenuStrip();
-            iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            BtAdd = new FontAwesome.Sharp.IconMenuItem();
             BtUpdate = new FontAwesome.Sharp.IconMenuItem();
             BtDelete = new FontAwesome.Sharp.IconMenuItem();
             BtClose = new FontAwesome.Sharp.IconMenuItem();
@@ -85,6 +85,7 @@
             ProductDGV.RowHeadersWidth = 51;
             ProductDGV.Size = new Size(980, 474);
             ProductDGV.TabIndex = 0;
+            ProductDGV.CellContentClick += ProductDGV_CellContentClick;
             // 
             // panel3
             // 
@@ -97,22 +98,22 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iconMenuItem3, BtUpdate, BtDelete, BtClose });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { BtAdd, BtUpdate, BtDelete, BtClose });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(978, 35);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // iconMenuItem3
+            // BtAdd
             // 
-            iconMenuItem3.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Add;
-            iconMenuItem3.IconColor = Color.Black;
-            iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem3.Name = "iconMenuItem3";
-            iconMenuItem3.Size = new Size(124, 31);
-            iconMenuItem3.Text = "Agregar";
+            BtAdd.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtAdd.IconChar = FontAwesome.Sharp.IconChar.Add;
+            BtAdd.IconColor = Color.Black;
+            BtAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtAdd.Name = "BtAdd";
+            BtAdd.Size = new Size(124, 31);
+            BtAdd.Text = "Agregar";
             // 
             // BtUpdate
             // 
@@ -148,6 +149,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(976, 610);
             Controls.Add(panel3);
@@ -179,7 +181,7 @@
         private Panel panel3;
         private MenuStrip menuStrip1;
         private FontAwesome.Sharp.IconMenuItem BtClose;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem3;
+        private FontAwesome.Sharp.IconMenuItem BtAdd;
         private FontAwesome.Sharp.IconMenuItem BtUpdate;
         private FontAwesome.Sharp.IconMenuItem BtDelete;
     }

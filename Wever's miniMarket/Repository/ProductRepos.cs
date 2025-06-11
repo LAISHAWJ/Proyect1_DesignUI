@@ -41,7 +41,7 @@ namespace Wever_s_miniMarket.Repository
                 producto.CategoriaId = (int)dataReader["CategoriaId"];
                 producto.SuplidorId = (int)dataReader["SuplidorId"];
                 producto.FechaCreacion = dataReader.GetDateTime(5);
-                producto.FechaModificacion = dataReader.IsDBNull(6) ? (DateTime?)null : dataReader.GetDateTime(5);
+                producto.FechaModificacion = dataReader.IsDBNull(6) ? (DateTime?)null : dataReader.GetDateTime(6);
                 producto.ActiveorDeleted = (bool)dataReader["ActiveorDeleted"];
 
                 productlist.Add(producto);
