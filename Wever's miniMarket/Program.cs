@@ -21,6 +21,8 @@ namespace Wever_s_miniMarket
             services.AddTransient<Menufrm>();
             services.AddTransient<CategoryRepos>();
             services.AddTransient<CategoryFrm>();
+            services.AddTransient<ProductRepos>();
+            services.AddTransient<ProductFrm>();
 
 
 

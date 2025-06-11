@@ -34,10 +34,10 @@
             ProductDGV = new DataGridView();
             panel3 = new Panel();
             menuStrip1 = new MenuStrip();
-            BtClose = new FontAwesome.Sharp.IconMenuItem();
-            BtDelete = new FontAwesome.Sharp.IconMenuItem();
-            BtUpdate = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem3 = new FontAwesome.Sharp.IconMenuItem();
+            BtUpdate = new FontAwesome.Sharp.IconMenuItem();
+            BtDelete = new FontAwesome.Sharp.IconMenuItem();
+            BtClose = new FontAwesome.Sharp.IconMenuItem();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ProductDGV).BeginInit();
@@ -104,25 +104,15 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // BtClose
+            // iconMenuItem3
             // 
-            BtClose.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtClose.IconChar = FontAwesome.Sharp.IconChar.Close;
-            BtClose.IconColor = Color.Black;
-            BtClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BtClose.Name = "BtClose";
-            BtClose.Size = new Size(105, 31);
-            BtClose.Text = "Cerrar";
-            // 
-            // BtDelete
-            // 
-            BtDelete.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtDelete.IconChar = FontAwesome.Sharp.IconChar.DeleteLeft;
-            BtDelete.IconColor = Color.Black;
-            BtDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BtDelete.Name = "BtDelete";
-            BtDelete.Size = new Size(124, 31);
-            BtDelete.Text = "Eliminar";
+            iconMenuItem3.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Add;
+            iconMenuItem3.IconColor = Color.Black;
+            iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMenuItem3.Name = "iconMenuItem3";
+            iconMenuItem3.Size = new Size(124, 31);
+            iconMenuItem3.Text = "Agregar";
             // 
             // BtUpdate
             // 
@@ -134,15 +124,25 @@
             BtUpdate.Size = new Size(142, 31);
             BtUpdate.Text = "Actualizar";
             // 
-            // iconMenuItem3
+            // BtDelete
             // 
-            iconMenuItem3.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            iconMenuItem3.IconChar = FontAwesome.Sharp.IconChar.Add;
-            iconMenuItem3.IconColor = Color.Black;
-            iconMenuItem3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconMenuItem3.Name = "iconMenuItem3";
-            iconMenuItem3.Size = new Size(124, 31);
-            iconMenuItem3.Text = "Agregar";
+            BtDelete.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtDelete.IconChar = FontAwesome.Sharp.IconChar.DeleteLeft;
+            BtDelete.IconColor = Color.Black;
+            BtDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtDelete.Name = "BtDelete";
+            BtDelete.Size = new Size(124, 31);
+            BtDelete.Text = "Eliminar";
+            // 
+            // BtClose
+            // 
+            BtClose.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtClose.IconChar = FontAwesome.Sharp.IconChar.Close;
+            BtClose.IconColor = Color.Black;
+            BtClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtClose.Name = "BtClose";
+            BtClose.Size = new Size(105, 31);
+            BtClose.Text = "Cerrar";
             // 
             // ProductFrm
             // 
@@ -157,6 +157,7 @@
             MainMenuStrip = menuStrip1;
             Name = "ProductFrm";
             StartPosition = FormStartPosition.CenterScreen;
+            Load += ProductFrm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

@@ -1,12 +1,59 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wever_s_miniMarket.Models;
 
 namespace Wever_s_miniMarket.Repository
 {
-    internal class ProductRepos
+    public class ProductRepos
     {
+        private readonly IConfiguration configuration;
+
+        public ProductRepos(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
+        public IEnumerable<Producto> GetProductos()
+        {
+            var productlist = new List<Producto>();
+
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connection = new SqlConnection(connectionString);
+
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = @"SELECT ProductoId, Nombre, PrecioUnitario, CategoriaId, SuplidorId, FechaCreacion, FechaModificacion, ActiveorDeleted
+            FROM     Productos";
+
+            var dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                var producto = new Producto();
+                producto.ProductoId = (int)dataReader["ProductoId"];
+                producto.Nombre = (string)dataReader["Nombre"];
+                producto.PrecioUnitario = (decimal)dataReader["PrecioUnitario"];
+                producto.CategoriaId = (int)dataReader["CategoriaId"];
+                producto.SuplidorId = (int)dataReader["SuplidorId"];
+                producto.FechaCreacion = dataReader.GetDateTime(5);
+                producto.FechaModificacion = dataReader.IsDBNull(6) ? (DateTime?)null : dataReader.GetDateTime(5);
+                producto.ActiveorDeleted = (bool)dataReader["ActiveorDeleted"];
+
+                productlist.Add(producto);
+            }
+
+            connection.Close();
+
+            return productlist;
+
+        }
+
+
+
     }
 }
