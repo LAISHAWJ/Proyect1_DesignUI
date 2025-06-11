@@ -29,9 +29,9 @@ namespace Wever_s_miniMarket.Repository
             connection.Open();
 
             var command = connection.CreateCommand();
-            command.CommandText = @"
-            SELECT CategoriaId, Nombre, Descripcion, FechaCreacion, FechaModificacion, ActiveorDeleted
+            command.CommandText = @"SELECT CategoriaId, Nombre, Descripcion, RutaFoto, FechaCreacion, FechaModificacion, ActiveorDeleted
             FROM     Categorias";
+           
 
 
             var dataReader = command.ExecuteReader();
@@ -41,8 +41,9 @@ namespace Wever_s_miniMarket.Repository
                 categoria.CategoriaId = (int)dataReader["CategoriaId"];
                 categoria.Nombre = (string)dataReader["Nombre"];
                 categoria.Descripcion = (string)dataReader["Descripcion"];
-                categoria.FechaCreacion = dataReader.GetDateTime(3);
-                categoria.FechaModificacion = dataReader.IsDBNull(4) ? (DateTime?)null : dataReader.GetDateTime(4);
+                categoria.RutaFoto = (string)dataReader["RutaFoto"];
+                categoria.FechaCreacion = dataReader.GetDateTime(4);
+                categoria.FechaModificacion = dataReader.IsDBNull(5) ? (DateTime?)null : dataReader.GetDateTime(5);
                 categoria.ActiveorDeleted = (bool)dataReader["ActiveorDeleted"];
 
                 categorylist.Add(categoria);
