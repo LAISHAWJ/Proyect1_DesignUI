@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wever_s_miniMarket.Models
 {
-    internal class Suplidor
+    public class Suplidor
     {
         public int SuplidorId { get; set; }
 

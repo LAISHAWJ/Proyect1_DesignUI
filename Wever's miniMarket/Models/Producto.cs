@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wever_s_miniMarket.Models
 {
-    internal class Producto
+    public class Producto
     {
         public int ProductoId { get; set; }
 
