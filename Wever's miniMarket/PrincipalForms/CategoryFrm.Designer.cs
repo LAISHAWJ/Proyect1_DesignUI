@@ -32,6 +32,7 @@
             label1 = new Label();
             panel2 = new Panel();
             CategoryDGV = new DataGridView();
+            panel4 = new Panel();
             panel3 = new Panel();
             menuStrip1 = new MenuStrip();
             BtAdd = new FontAwesome.Sharp.IconMenuItem();
@@ -71,6 +72,7 @@
             panel2.AutoSize = true;
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(CategoryDGV);
+            panel2.Controls.Add(panel4);
             panel2.Location = new Point(0, 129);
             panel2.Name = "panel2";
             panel2.Size = new Size(1013, 533);
@@ -88,6 +90,15 @@
             CategoryDGV.RowHeadersWidth = 51;
             CategoryDGV.Size = new Size(1013, 533);
             CategoryDGV.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            panel4.AutoSize = true;
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1013, 533);
+            panel4.TabIndex = 1;
             // 
             // panel3
             // 
@@ -156,6 +167,7 @@
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
+            AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(995, 661);
             Controls.Add(panel3);
@@ -168,6 +180,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CategoryDGV).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -189,5 +202,6 @@
         private FontAwesome.Sharp.IconMenuItem BtUpdate;
         private FontAwesome.Sharp.IconMenuItem BtDelete;
         private FontAwesome.Sharp.IconMenuItem BtClose;
+        private Panel panel4;
     }
 }

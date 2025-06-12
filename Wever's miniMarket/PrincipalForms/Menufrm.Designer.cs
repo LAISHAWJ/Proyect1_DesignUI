@@ -57,7 +57,7 @@
             BtCategory.Font = new Font("Segoe UI Emoji", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtCategory.ForeColor = SystemColors.ControlLightLight;
             BtCategory.IconChar = FontAwesome.Sharp.IconChar.ListSquares;
-            BtCategory.IconColor = Color.FromArgb(255, 128, 0);
+            BtCategory.IconColor = Color.White;
             BtCategory.IconFont = FontAwesome.Sharp.IconFont.Solid;
             BtCategory.IconSize = 60;
             BtCategory.ImageScaling = ToolStripItemImageScaling.None;
@@ -73,7 +73,7 @@
             BtProducts.Font = new Font("Segoe UI Emoji", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtProducts.ForeColor = SystemColors.ControlLightLight;
             BtProducts.IconChar = FontAwesome.Sharp.IconChar.Box;
-            BtProducts.IconColor = Color.Brown;
+            BtProducts.IconColor = Color.White;
             BtProducts.IconFont = FontAwesome.Sharp.IconFont.Solid;
             BtProducts.IconSize = 60;
             BtProducts.ImageScaling = ToolStripItemImageScaling.None;
@@ -89,7 +89,7 @@
             BtSupplier.Font = new Font("Segoe UI Emoji", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtSupplier.ForeColor = SystemColors.ControlLightLight;
             BtSupplier.IconChar = FontAwesome.Sharp.IconChar.Truck;
-            BtSupplier.IconColor = Color.FromArgb(128, 128, 255);
+            BtSupplier.IconColor = Color.White;
             BtSupplier.IconFont = FontAwesome.Sharp.IconFont.Solid;
             BtSupplier.IconSize = 60;
             BtSupplier.ImageScaling = ToolStripItemImageScaling.None;
@@ -103,7 +103,7 @@
             // BtExit
             // 
             BtExit.Font = new Font("Segoe UI Emoji", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtExit.ForeColor = SystemColors.ControlLightLight;
+            BtExit.ForeColor = Color.Red;
             BtExit.IconChar = FontAwesome.Sharp.IconChar.Close;
             BtExit.IconColor = Color.Red;
             BtExit.IconFont = FontAwesome.Sharp.IconFont.Solid;
