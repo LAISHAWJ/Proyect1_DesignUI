@@ -52,7 +52,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1013, 72);
+            panel1.Size = new Size(1010, 136);
             panel1.TabIndex = 2;
             // 
             // label1
@@ -60,7 +60,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Emoji", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(744, 7);
+            label1.Location = new Point(729, 9);
             label1.Name = "label1";
             label1.Size = new Size(263, 58);
             label1.TabIndex = 0;
@@ -78,10 +78,13 @@
             // 
             // CategoryDGV
             // 
+            CategoryDGV.AllowUserToAddRows = false;
+            CategoryDGV.AllowUserToDeleteRows = false;
             CategoryDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CategoryDGV.Dock = DockStyle.Fill;
             CategoryDGV.Location = new Point(0, 0);
             CategoryDGV.Name = "CategoryDGV";
+            CategoryDGV.ReadOnly = true;
             CategoryDGV.RowHeadersWidth = 51;
             CategoryDGV.Size = new Size(1013, 533);
             CategoryDGV.TabIndex = 0;
@@ -89,9 +92,9 @@
             // panel3
             // 
             panel3.Controls.Add(menuStrip1);
-            panel3.Location = new Point(0, 78);
+            panel3.Location = new Point(2, 83);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1013, 46);
+            panel3.Size = new Size(1013, 35);
             panel3.TabIndex = 4;
             // 
             // menuStrip1
@@ -113,6 +116,7 @@
             BtAdd.Name = "BtAdd";
             BtAdd.Size = new Size(124, 31);
             BtAdd.Text = "Agregar";
+            BtAdd.Click += BtAdd_Click;
             // 
             // BtUpdate
             // 
@@ -123,6 +127,7 @@
             BtUpdate.Name = "BtUpdate";
             BtUpdate.Size = new Size(142, 31);
             BtUpdate.Text = "Actualizar";
+            BtUpdate.Click += BtUpdate_Click;
             // 
             // BtDelete
             // 
@@ -133,6 +138,7 @@
             BtDelete.Name = "BtDelete";
             BtDelete.Size = new Size(124, 31);
             BtDelete.Text = "Eliminar";
+            BtDelete.Click += BtDelete_Click;
             // 
             // BtClose
             // 
@@ -143,13 +149,15 @@
             BtClose.Name = "BtClose";
             BtClose.Size = new Size(105, 31);
             BtClose.Text = "Cerrar";
+            BtClose.Click += BtClose_Click;
             // 
             // CategoryFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1012, 661);
+            ClientSize = new Size(995, 661);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

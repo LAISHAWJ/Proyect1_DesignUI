@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Wever_s_miniMarket.PrincipalForms;
 using Wever_s_miniMarket.Repository;
+using Wever_s_miniMarket.Validators;
 
 namespace Wever_s_miniMarket
 {
@@ -20,6 +21,7 @@ namespace Wever_s_miniMarket
             services.AddSingleton<IConfiguration>(configuration);
             services.AddTransient<Menufrm>();
             services.AddTransient<CategoryRepos>();
+            services.AddTransient<CategoryValid>();
             services.AddTransient<CategoryFrm>();
             services.AddTransient<ProductRepos>();
             services.AddTransient<ProductFrm>();

@@ -35,12 +35,17 @@
             label3 = new Label();
             Descriptxt = new TextBox();
             label4 = new Label();
-            dateTimeCreacion = new DateTimePicker();
+            dateTimeCrear = new DateTimePicker();
             dateTimeUpdate = new DateTimePicker();
             label5 = new Label();
-            button1 = new Button();
+            BtSubirPic = new Button();
             CategoryPic = new PictureBox();
             label6 = new Label();
+            label7 = new Label();
+            StatuscCmbx = new ComboBox();
+            BtSave = new Button();
+            BtCancel = new Button();
+            openFileDialog = new OpenFileDialog();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CategoryPic).BeginInit();
             SuspendLayout();
@@ -111,13 +116,13 @@
             label4.TabIndex = 5;
             label4.Text = "Fecha Creación:";
             // 
-            // dateTimeCreacion
+            // dateTimeCrear
             // 
-            dateTimeCreacion.CalendarFont = new Font("Segoe UI Emoji", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimeCreacion.Location = new Point(183, 270);
-            dateTimeCreacion.Name = "dateTimeCreacion";
-            dateTimeCreacion.Size = new Size(401, 27);
-            dateTimeCreacion.TabIndex = 6;
+            dateTimeCrear.CalendarFont = new Font("Segoe UI Emoji", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimeCrear.Location = new Point(183, 270);
+            dateTimeCrear.Name = "dateTimeCrear";
+            dateTimeCrear.Size = new Size(401, 27);
+            dateTimeCrear.TabIndex = 6;
             // 
             // dateTimeUpdate
             // 
@@ -137,15 +142,15 @@
             label5.TabIndex = 7;
             label5.Text = "Fecha Modificación:";
             // 
-            // button1
+            // BtSubirPic
             // 
-            button1.Location = new Point(490, 595);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 9;
-            button1.Text = "SUBIR";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            BtSubirPic.Location = new Point(137, 594);
+            BtSubirPic.Name = "BtSubirPic";
+            BtSubirPic.Size = new Size(94, 29);
+            BtSubirPic.TabIndex = 9;
+            BtSubirPic.Text = "Subir";
+            BtSubirPic.UseVisualStyleBackColor = true;
+            BtSubirPic.Click += BtSubirPic_Click;
             // 
             // CategoryPic
             // 
@@ -166,18 +171,65 @@
             label6.TabIndex = 11;
             label6.Text = "Seleccionar imágenes:";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(15, 665);
+            label7.Name = "label7";
+            label7.Size = new Size(82, 27);
+            label7.TabIndex = 12;
+            label7.Text = "Estado:";
+            // 
+            // StatuscCmbx
+            // 
+            StatuscCmbx.FormattingEnabled = true;
+            StatuscCmbx.Items.AddRange(new object[] { "Activo", "Eliminado" });
+            StatuscCmbx.Location = new Point(103, 664);
+            StatuscCmbx.Name = "StatuscCmbx";
+            StatuscCmbx.Size = new Size(339, 28);
+            StatuscCmbx.TabIndex = 13;
+            // 
+            // BtSave
+            // 
+            BtSave.Location = new Point(506, 729);
+            BtSave.Name = "BtSave";
+            BtSave.Size = new Size(94, 29);
+            BtSave.TabIndex = 14;
+            BtSave.Text = "Guardar";
+            BtSave.UseVisualStyleBackColor = true;
+            BtSave.Click += BtSave_Click;
+            // 
+            // BtCancel
+            // 
+            BtCancel.Location = new Point(406, 729);
+            BtCancel.Name = "BtCancel";
+            BtCancel.Size = new Size(94, 29);
+            BtCancel.TabIndex = 15;
+            BtCancel.Text = "Cancelar";
+            BtCancel.UseVisualStyleBackColor = true;
+            BtCancel.Click += BtCancel_Click;
+            // 
+            // openFileDialog
+            // 
+            openFileDialog.FileName = "openFileDialog1";
+            // 
             // CategoryCrear
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(619, 780);
+            ClientSize = new Size(619, 784);
+            Controls.Add(BtCancel);
+            Controls.Add(BtSave);
+            Controls.Add(StatuscCmbx);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(CategoryPic);
-            Controls.Add(button1);
+            Controls.Add(BtSubirPic);
             Controls.Add(dateTimeUpdate);
             Controls.Add(label5);
-            Controls.Add(dateTimeCreacion);
+            Controls.Add(dateTimeCrear);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(Descriptxt);
@@ -203,11 +255,16 @@
         private Label label3;
         private TextBox Descriptxt;
         private Label label4;
-        private DateTimePicker dateTimeCreacion;
+        private DateTimePicker dateTimeCrear;
         private DateTimePicker dateTimeUpdate;
         private Label label5;
-        private Button button1;
+        private Button BtSubirPic;
         private PictureBox CategoryPic;
         private Label label6;
+        private Label label7;
+        private ComboBox StatuscCmbx;
+        private Button BtSave;
+        private Button BtCancel;
+        private OpenFileDialog openFileDialog;
     }
 }

@@ -41,7 +41,7 @@ namespace Wever_s_miniMarket.Repository
                 categoria.CategoriaId = (int)dataReader["CategoriaId"];
                 categoria.Nombre = (string)dataReader["Nombre"];
                 categoria.Descripcion = (string)dataReader["Descripcion"];
-                categoria.RutaFoto = (string)dataReader["RutaFoto"];
+                categoria.RutaFoto = dataReader["RutaFoto"] as string;
                 categoria.FechaCreacion = dataReader.GetDateTime(4);
                 categoria.FechaModificacion = dataReader.IsDBNull(5) ? (DateTime?)null : dataReader.GetDateTime(5);
                 categoria.ActiveorDeleted = (bool)dataReader["ActiveorDeleted"];
@@ -54,6 +54,57 @@ namespace Wever_s_miniMarket.Repository
             return categorylist;
         }
 
-     
+        public void AddCategoria(Categoria categoria)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"INSERT INTO Categorias (Nombre, Descripcion, RutaFoto, FechaCreacion, ActiveorDeleted)
+                                 VALUES (@Nombre, @Descripcion, @RutaFoto, @FechaCreacion, @ActiveorDeleted)";
+                command.Parameters.AddWithValue("@Nombre", categoria.Nombre);
+                command.Parameters.AddWithValue("@Descripcion", (object)categoria.Descripcion ?? DBNull.Value);
+                command.Parameters.AddWithValue("@RutaFoto", (object)categoria.RutaFoto ?? DBNull.Value);
+                command.Parameters.AddWithValue("@FechaCreacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateCategoria(Categoria categoria)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Categorias SET Nombre = @Nombre, Descripcion = @Descripcion, 
+                                 RutaFoto = @RutaFoto, FechaModificacion = @FechaModificacion
+                                 WHERE CategoriaId = @CategoriaId AND ActiveorDeleted = 1";
+                command.Parameters.AddWithValue("@CategoriaId", categoria.CategoriaId);
+                command.Parameters.AddWithValue("@Nombre", categoria.Nombre);
+                command.Parameters.AddWithValue("@Descripcion", (object)categoria.Descripcion ?? DBNull.Value);
+                command.Parameters.AddWithValue("@RutaFoto", (object)categoria.RutaFoto ?? DBNull.Value);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteCategoria(int categoriaId)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Categorias SET ActiveorDeleted = 0, FechaModificacion = @FechaModificacion
+                                 WHERE CategoriaId = @CategoriaId";
+                command.Parameters.AddWithValue("@CategoriaId", categoriaId);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }

@@ -16,6 +16,10 @@ namespace Wever_s_miniMarket.ViewModel
 
         public string RutaFoto { get; set; }  // Ruta local o URL de la imagen
 
+        public DateTime FechaCreacion { get; set; }
+
+        public DateTime? FechaModificacion { get; set; }
+
         public bool ActiveorDeleted { get; set; }
     }
 }

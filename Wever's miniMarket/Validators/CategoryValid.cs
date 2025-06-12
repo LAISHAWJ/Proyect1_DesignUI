@@ -20,9 +20,13 @@ namespace Wever_s_miniMarket.Validators
                 .MaximumLength(500).WithMessage("La descripción no puede exceder los 500 caracteres.")
                 .When(x => !string.IsNullOrEmpty(x.Descripcion));
 
+            RuleFor(x => x.FechaCreacion)
+             .NotEmpty().WithMessage("La fecha de creación es obligatoria.");
+            
             RuleFor(x => x.ActiveorDeleted)
               .NotNull().WithMessage("El estado de activo/eliminado es obligatorio.");
         }
 
+     
     }
 }
