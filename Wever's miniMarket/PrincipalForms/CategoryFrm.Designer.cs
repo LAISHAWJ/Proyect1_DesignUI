@@ -153,8 +153,8 @@
             // 
             // CategoryFrm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(995, 661);

@@ -84,9 +84,9 @@
             label2.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(15, 122);
             label2.Name = "label2";
-            label2.Size = new Size(96, 27);
+            label2.Size = new Size(91, 27);
             label2.TabIndex = 2;
-            label2.Text = "Nombre:";
+            label2.Text = "Nombre";
             // 
             // label3
             // 
@@ -94,9 +94,9 @@
             label3.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(15, 194);
             label3.Name = "label3";
-            label3.Size = new Size(130, 27);
+            label3.Size = new Size(125, 27);
             label3.TabIndex = 4;
-            label3.Text = "Descripción:";
+            label3.Text = "Descripción";
             // 
             // Descriptxt
             // 
@@ -112,9 +112,9 @@
             label4.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(15, 269);
             label4.Name = "label4";
-            label4.Size = new Size(162, 27);
+            label4.Size = new Size(157, 27);
             label4.TabIndex = 5;
-            label4.Text = "Fecha Creación:";
+            label4.Text = "Fecha Creación";
             // 
             // dateTimeCrear
             // 
@@ -138,9 +138,9 @@
             label5.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(15, 334);
             label5.Name = "label5";
-            label5.Size = new Size(204, 27);
+            label5.Size = new Size(199, 27);
             label5.TabIndex = 7;
-            label5.Text = "Fecha Modificación:";
+            label5.Text = "Fecha Modificación";
             // 
             // BtSubirPic
             // 
@@ -157,7 +157,7 @@
             CategoryPic.BackColor = Color.SeaGreen;
             CategoryPic.Location = new Point(237, 389);
             CategoryPic.Name = "CategoryPic";
-            CategoryPic.Size = new Size(246, 234);
+            CategoryPic.Size = new Size(347, 234);
             CategoryPic.TabIndex = 10;
             CategoryPic.TabStop = false;
             // 
@@ -167,9 +167,9 @@
             label6.Font = new Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(12, 387);
             label6.Name = "label6";
-            label6.Size = new Size(224, 27);
+            label6.Size = new Size(219, 27);
             label6.TabIndex = 11;
-            label6.Text = "Seleccionar imágenes:";
+            label6.Text = "Seleccionar imágenes";
             // 
             // label7
             // 

@@ -13,6 +13,8 @@ namespace Wever_s_miniMarket.ViewModel
         public decimal PrecioUnitario { get; set; }
         public int CategoriaId { get; set; }
         public int SuplidorId { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaModificacion { get; set; }
         public bool ActiveorDeleted { get; set; }
     }
 }

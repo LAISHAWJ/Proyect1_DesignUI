@@ -52,6 +52,59 @@ namespace Wever_s_miniMarket.Repository
             return productlist;
 
         }
+        public void AddProducto(Producto producto)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"INSERT INTO Productos (Nombre, PrecioUnitario, CategoriaId, SuplidorId, FechaCreacion, ActiveorDeleted)
+                                 VALUES (@Nombre, @PrecioUnitario, @CategoriaId, @SuplidorId, @FechaCreacion, @ActiveorDeleted)";
+                command.Parameters.AddWithValue("@Nombre", producto.Nombre);
+                command.Parameters.AddWithValue("@PrecioUnitario", producto.PrecioUnitario);
+                command.Parameters.AddWithValue("@CategoriaId", producto.CategoriaId);
+                command.Parameters.AddWithValue("@SuplidorId", producto.SuplidorId);
+                command.Parameters.AddWithValue("@FechaCreacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateProducto(Producto producto)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Productos SET Nombre = @Nombre, PrecioUnitario = @PrecioUnitario, 
+                                 CategoriaId = @CategoriaId, SuplidorId = @SuplidorId, FechaModificacion = @FechaModificacion
+                                 WHERE ProductoId = @ProductoId AND ActiveorDeleted = 1";
+                command.Parameters.AddWithValue("@ProductoId", producto.ProductoId);
+                command.Parameters.AddWithValue("@Nombre", producto.Nombre);
+                command.Parameters.AddWithValue("@PrecioUnitario", producto.PrecioUnitario);
+                command.Parameters.AddWithValue("@CategoriaId", producto.CategoriaId);
+                command.Parameters.AddWithValue("@SuplidorId", producto.SuplidorId);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteProducto(int productoId)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Productos SET ActiveorDeleted = 0, FechaModificacion = @FechaModificacion
+                                 WHERE ProductoId = @ProductoId";
+                command.Parameters.AddWithValue("@ProductoId", productoId);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
 
 
 

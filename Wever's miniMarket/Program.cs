@@ -25,8 +25,13 @@ namespace Wever_s_miniMarket
             services.AddTransient<CategoryValid>();
             services.AddTransient<CategoryFrm>();
             services.AddTransient<CategoryCrear>();
+
             services.AddTransient<ProductRepos>();
+            services.AddTransient<ProductValid>();
             services.AddTransient<ProductFrm>();
+            services.AddTransient<ProductCrear>();
+            
+
             services.AddTransient<SupplierRepos>();
             services.AddTransient<SupplierValid>();
             services.AddTransient<SupplierFrm>();
