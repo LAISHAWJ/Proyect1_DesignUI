@@ -53,5 +53,63 @@ namespace Wever_s_miniMarket.Repository
 
         }
 
+        public void AddSuplidor(Suplidor suplidor)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"INSERT INTO Suplidores (NombreEmpresa, NombreContacto, Telefono, CorreoElectronico, SitioWeb, FechaCreacion, ActiveorDeleted)
+                                 VALUES (@NombreEmpresa, @NombreContacto, @Telefono, @CorreoElectronico, @SitioWeb, @FechaCreacion, @ActiveorDeleted)";
+                command.Parameters.AddWithValue("@NombreEmpresa", suplidor.NombreEmpresa);
+                command.Parameters.AddWithValue("@NombreContacto", (object)suplidor.NombreContacto ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Telefono", (object)suplidor.Telefono ?? DBNull.Value);
+                command.Parameters.AddWithValue("@CorreoElectronico", (object)suplidor.CorreoElectronico ?? DBNull.Value);
+                command.Parameters.AddWithValue("@SitioWeb", (object)suplidor.SitioWeb ?? DBNull.Value);
+                command.Parameters.AddWithValue("@FechaCreacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+        public void UpdateSuplidor(Suplidor suplidor)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Suplidores SET NombreEmpresa = @NombreEmpresa, NombreContacto = @NombreContacto, 
+                                 Telefono = @Telefono, CorreoElectronico = @CorreoElectronico, SitioWeb = @SitioWeb, 
+                                 FechaModificacion = @FechaModificacion
+                                 WHERE SuplidorId = @SuplidorId AND ActiveorDeleted = 1";
+                command.Parameters.AddWithValue("@SuplidorId", suplidor.SuplidorId);
+                command.Parameters.AddWithValue("@NombreEmpresa", suplidor.NombreEmpresa);
+                command.Parameters.AddWithValue("@NombreContacto", (object)suplidor.NombreContacto ?? DBNull.Value);
+                command.Parameters.AddWithValue("@Telefono", (object)suplidor.Telefono ?? DBNull.Value);
+                command.Parameters.AddWithValue("@CorreoElectronico", (object)suplidor.CorreoElectronico ?? DBNull.Value);
+                command.Parameters.AddWithValue("@SitioWeb", (object)suplidor.SitioWeb ?? DBNull.Value);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteSuplidor(int suplidorId)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = @"UPDATE Suplidores SET ActiveorDeleted = 0, FechaModificacion = @FechaModificacion
+                                 WHERE SuplidorId = @SuplidorId";
+                command.Parameters.AddWithValue("@SuplidorId", suplidorId);
+                command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }

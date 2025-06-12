@@ -114,6 +114,7 @@
             BtAdd.Name = "BtAdd";
             BtAdd.Size = new Size(124, 31);
             BtAdd.Text = "Agregar";
+            BtAdd.Click += BtAdd_Click;
             // 
             // BtUpdate
             // 
@@ -124,6 +125,7 @@
             BtUpdate.Name = "BtUpdate";
             BtUpdate.Size = new Size(142, 31);
             BtUpdate.Text = "Actualizar";
+            BtUpdate.Click += BtUpdate_Click;
             // 
             // BtDelete
             // 
@@ -134,6 +136,7 @@
             BtDelete.Name = "BtDelete";
             BtDelete.Size = new Size(124, 31);
             BtDelete.Text = "Eliminar";
+            BtDelete.Click += BtDelete_Click;
             // 
             // BtClose
             // 
@@ -144,6 +147,7 @@
             BtClose.Name = "BtClose";
             BtClose.Size = new Size(105, 31);
             BtClose.Text = "Cerrar";
+            BtClose.Click += BtClose_Click;
             // 
             // SupplierFrm
             // 

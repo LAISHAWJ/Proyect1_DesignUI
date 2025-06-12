@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Wever_s_miniMarket.CreacionEntidadesForms;
 using Wever_s_miniMarket.PrincipalForms;
 using Wever_s_miniMarket.Repository;
 using Wever_s_miniMarket.Validators;
@@ -23,10 +24,13 @@ namespace Wever_s_miniMarket
             services.AddTransient<CategoryRepos>();
             services.AddTransient<CategoryValid>();
             services.AddTransient<CategoryFrm>();
+            services.AddTransient<CategoryCrear>();
             services.AddTransient<ProductRepos>();
             services.AddTransient<ProductFrm>();
             services.AddTransient<SupplierRepos>();
+            services.AddTransient<SupplierValid>();
             services.AddTransient<SupplierFrm>();
+            services.AddTransient<SupplierCrear>();
             var serviceProvider = services.BuildServiceProvider();
 
 

@@ -14,6 +14,8 @@ namespace Wever_s_miniMarket.ViewModel
         public string Telefono { get; set; }
         public string CorreoElectronico { get; set; }
         public string SitioWeb { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaModificacion { get; set; }
         public bool ActiveorDeleted { get; set; }
     }
 }

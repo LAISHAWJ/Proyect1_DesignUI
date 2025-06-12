@@ -66,9 +66,9 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(4, 6);
             label1.Name = "label1";
-            label1.Size = new Size(384, 63);
+            label1.Size = new Size(264, 63);
             label1.TabIndex = 0;
-            label1.Text = "NEW CATEGORY";
+            label1.Text = "CATEGORY";
             // 
             // Nametxt
             // 

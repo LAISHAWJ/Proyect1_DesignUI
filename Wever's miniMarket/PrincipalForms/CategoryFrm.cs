@@ -42,9 +42,9 @@ namespace Wever_s_miniMarket
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
-            using (var categorycrear = new CategoryCrear(_categoryRepos, _validator, this))
+            using (var categorycrearadd = new CategoryCrear(_categoryRepos, _validator, this))
             {
-                categorycrear.ShowDialog();
+                categorycrearadd.ShowDialog();
             }
         }
 
@@ -53,10 +53,10 @@ namespace Wever_s_miniMarket
             if (CategoryDGV.SelectedRows.Count > 0)
             {
                 int categoriaId = (int)CategoryDGV.SelectedRows[0].Cells["CategoriaId"].Value;
-                using (var newCategoryFrm = new CategoryCrear(_categoryRepos, _validator, this))
+                using (var categoryCrearup = new CategoryCrear(_categoryRepos, _validator, this))
                 {
-                    newCategoryFrm.SetUpdateMode(categoriaId);
-                    newCategoryFrm.ShowDialog();
+                    categoryCrearup.SetUpdateMode(categoriaId);
+                    categoryCrearup.ShowDialog();
                 }
             }
             else
