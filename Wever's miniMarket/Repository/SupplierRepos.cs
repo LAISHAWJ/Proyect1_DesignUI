@@ -83,8 +83,8 @@ namespace Wever_s_miniMarket.Repository
                 var command = connection.CreateCommand();
                 command.CommandText = @"UPDATE Suplidores SET NombreEmpresa = @NombreEmpresa, NombreContacto = @NombreContacto, 
                                  Telefono = @Telefono, CorreoElectronico = @CorreoElectronico, SitioWeb = @SitioWeb, 
-                                 FechaModificacion = @FechaModificacion
-                                 WHERE SuplidorId = @SuplidorId AND ActiveorDeleted = 1";
+                                 FechaModificacion = @FechaModificacion, ActiveorDeleted = 1
+                                 WHERE SuplidorId = @SuplidorId";
                 command.Parameters.AddWithValue("@SuplidorId", suplidor.SuplidorId);
                 command.Parameters.AddWithValue("@NombreEmpresa", suplidor.NombreEmpresa);
                 command.Parameters.AddWithValue("@NombreContacto", (object)suplidor.NombreContacto ?? DBNull.Value);
@@ -92,6 +92,7 @@ namespace Wever_s_miniMarket.Repository
                 command.Parameters.AddWithValue("@CorreoElectronico", (object)suplidor.CorreoElectronico ?? DBNull.Value);
                 command.Parameters.AddWithValue("@SitioWeb", (object)suplidor.SitioWeb ?? DBNull.Value);
                 command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
                 command.ExecuteNonQuery();
             }
         }

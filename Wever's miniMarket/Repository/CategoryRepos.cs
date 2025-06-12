@@ -31,7 +31,7 @@ namespace Wever_s_miniMarket.Repository
             var command = connection.CreateCommand();
             command.CommandText = @"SELECT CategoriaId, Nombre, Descripcion, RutaFoto, FechaCreacion, FechaModificacion, ActiveorDeleted
             FROM     Categorias";
-           
+
 
 
             var dataReader = command.ExecuteReader();
@@ -80,14 +80,16 @@ namespace Wever_s_miniMarket.Repository
                 connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = @"UPDATE Categorias SET Nombre = @Nombre, Descripcion = @Descripcion, 
-                                 RutaFoto = @RutaFoto, FechaModificacion = @FechaModificacion
-                                 WHERE CategoriaId = @CategoriaId AND ActiveorDeleted = 1";
+                                 RutaFoto = @RutaFoto, FechaModificacion = @FechaModificacion, ActiveorDeleted = 1
+                                 WHERE CategoriaId = @CategoriaId"; 
                 command.Parameters.AddWithValue("@CategoriaId", categoria.CategoriaId);
                 command.Parameters.AddWithValue("@Nombre", categoria.Nombre);
                 command.Parameters.AddWithValue("@Descripcion", (object)categoria.Descripcion ?? DBNull.Value);
                 command.Parameters.AddWithValue("@RutaFoto", (object)categoria.RutaFoto ?? DBNull.Value);
                 command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
                 command.ExecuteNonQuery();
+
             }
         }
 

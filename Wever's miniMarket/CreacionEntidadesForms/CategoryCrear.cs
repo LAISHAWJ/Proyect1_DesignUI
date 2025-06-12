@@ -55,7 +55,7 @@ namespace Wever_s_miniMarket
                 _rutaImagen = _categoriaToUpdate.RutaFoto;
                 if (!string.IsNullOrEmpty(_rutaImagen) && System.IO.File.Exists(_rutaImagen))
                 {
-                    BtSubirPic.Image = new Bitmap(_rutaImagen);
+                    CategoryPic.Image = new Bitmap(_rutaImagen);
                 }
                 Text = "Update Category";
             }

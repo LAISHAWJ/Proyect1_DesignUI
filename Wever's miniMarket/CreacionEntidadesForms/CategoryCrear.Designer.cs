@@ -158,6 +158,7 @@
             CategoryPic.Location = new Point(237, 389);
             CategoryPic.Name = "CategoryPic";
             CategoryPic.Size = new Size(347, 234);
+            CategoryPic.SizeMode = PictureBoxSizeMode.StretchImage;
             CategoryPic.TabIndex = 10;
             CategoryPic.TabStop = false;
             // 

@@ -79,14 +79,15 @@ namespace Wever_s_miniMarket.Repository
                 connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = @"UPDATE Productos SET Nombre = @Nombre, PrecioUnitario = @PrecioUnitario, 
-                                 CategoriaId = @CategoriaId, SuplidorId = @SuplidorId, FechaModificacion = @FechaModificacion
-                                 WHERE ProductoId = @ProductoId AND ActiveorDeleted = 1";
+                                 CategoriaId = @CategoriaId, SuplidorId = @SuplidorId, FechaModificacion = @FechaModificacion, ActiveorDeleted = 1
+                                 WHERE ProductoId = @ProductoId";
                 command.Parameters.AddWithValue("@ProductoId", producto.ProductoId);
                 command.Parameters.AddWithValue("@Nombre", producto.Nombre);
                 command.Parameters.AddWithValue("@PrecioUnitario", producto.PrecioUnitario);
                 command.Parameters.AddWithValue("@CategoriaId", producto.CategoriaId);
                 command.Parameters.AddWithValue("@SuplidorId", producto.SuplidorId);
                 command.Parameters.AddWithValue("@FechaModificacion", DateTime.Now);
+                command.Parameters.AddWithValue("@ActiveorDeleted", true);
                 command.ExecuteNonQuery();
             }
         }
