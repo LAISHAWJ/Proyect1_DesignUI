@@ -17,17 +17,17 @@ namespace Wever_s_miniMarket.PrincipalForms
     {
         private readonly SupplierRepos _supplierRepos;
         private readonly SupplierValid _validator;
-        public SupplierFrm(SupplierRepos supplierRepos, SupplierValid validator)
+        private Menufrm _menufrm;
+        public SupplierFrm(SupplierRepos supplierRepos, SupplierValid validator, Menufrm menufrm)
         {
             InitializeComponent();
             _supplierRepos = supplierRepos;
             _validator = validator;
+            _menufrm = menufrm;
         }
 
         private void SupplierFrm_Load(object sender, EventArgs e)
         {
-            var suplidordvw = _supplierRepos.GetSuplidores();
-            SupplierDGV.DataSource = suplidordvw;
             RefreshDataGridView();
         }
 
@@ -60,9 +60,13 @@ namespace Wever_s_miniMarket.PrincipalForms
         {
             if (SupplierDGV.SelectedRows.Count > 0)
             {
-                int suplidorId = (int)SupplierDGV.SelectedRows[0].Cells["SuplidorId"].Value;
-                _supplierRepos.DeleteSuplidor(suplidorId);
-                RefreshDataGridView();
+                if (MessageBox.Show("¿Estás seguro que desea eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    int suplidorId = (int)SupplierDGV.SelectedRows[0].Cells["SuplidorId"].Value;
+                    _supplierRepos.DeleteSuplidor(suplidorId);
+                    RefreshDataGridView();
+                }
+                
             }
             else
             {
@@ -78,6 +82,7 @@ namespace Wever_s_miniMarket.PrincipalForms
 
         private void BtClose_Click(object sender, EventArgs e)
         {
+            _menufrm.Show();
             Close();
         }
     }

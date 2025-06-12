@@ -106,7 +106,5 @@ namespace Wever_s_miniMarket.Repository
             }
         }
 
-
-
     }
 }

@@ -20,14 +20,16 @@ namespace Wever_s_miniMarket.PrincipalForms
         private readonly CategoryRepos _categoryRepos;
         private readonly SupplierRepos _supplierRepos;
         private readonly ProductValid _validator;
+        private Menufrm _menufrm;
 
-        public ProductFrm(ProductRepos productRepos, CategoryRepos categoryRepos, SupplierRepos supplierRepos, ProductValid validator)
+        public ProductFrm(ProductRepos productRepos, CategoryRepos categoryRepos, SupplierRepos supplierRepos, ProductValid validator, Menufrm menufrm)
         {
             InitializeComponent();
             _productRepos = productRepos;
             _categoryRepos = categoryRepos;
             _supplierRepos = supplierRepos;
             _validator = validator;
+            _menufrm = menufrm;
             LoadComboBoxData();
         }
 
@@ -80,6 +82,7 @@ namespace Wever_s_miniMarket.PrincipalForms
 
         private void BtClose_Click(object sender, EventArgs e)
         {
+            _menufrm.Show();
             Close();
         }
 

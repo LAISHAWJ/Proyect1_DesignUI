@@ -74,12 +74,8 @@ namespace Wever_s_miniMarket.CreacionEntidadesForms
 
         private void BtSave_Click(object sender, EventArgs e)
         {
-            if (!decimal.TryParse(PrecioxUnitxt.Text, out decimal precioUnitario))
-            {
-                MessageBox.Show("El precio unitario debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
+            decimal.TryParse(PrecioxUnitxt.Text, out decimal precioUnitario);
+           
             var productVM = new ProductVM
             {
                 ProductoId = _isUpdateMode ? _productoToUpdate.ProductoId : 0,

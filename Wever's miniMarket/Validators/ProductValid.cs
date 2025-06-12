@@ -17,6 +17,7 @@ namespace Wever_s_miniMarket.Validators
                 .MaximumLength(150).WithMessage("El nombre no puede exceder los 150 caracteres.");
 
             RuleFor(x => x.PrecioUnitario)
+                .NotEmpty().WithMessage("El precio es obligatorio.")
                 .GreaterThan(0).WithMessage("El precio unitario debe ser mayor que cero.")
                 .LessThanOrEqualTo(1000000).WithMessage("El precio unitario no puede exceder 1,000,000.");
 

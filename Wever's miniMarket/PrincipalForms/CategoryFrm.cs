@@ -18,25 +18,25 @@ namespace Wever_s_miniMarket
     {
         private readonly CategoryRepos _categoryRepos;
         private readonly CategoryValid _validator = new CategoryValid();
+        private Menufrm _menufrm;
 
 
-        public CategoryFrm(CategoryRepos categoryRepos, CategoryValid validator)
+        public CategoryFrm(CategoryRepos categoryRepos, CategoryValid validator, Menufrm menufrm )
         {
             InitializeComponent();
             _categoryRepos = categoryRepos;
             _validator = validator;
-
+            _menufrm = menufrm;
         }
 
         private void CategoryFrm_Load(object sender, EventArgs e)
         {
-            var categoriadvw = _categoryRepos.GetCategorias();
-            CategoryDGV.DataSource = categoriadvw;
             RefreshDataGridView();
         }
 
         private void BtClose_Click(object sender, EventArgs e)
         {
+            _menufrm.Show();
             Close();
         }
 
@@ -69,9 +69,13 @@ namespace Wever_s_miniMarket
         {
             if (CategoryDGV.SelectedRows.Count > 0)
             {
-                int categoriaId = (int)CategoryDGV.SelectedRows[0].Cells["CategoriaId"].Value;
-                _categoryRepos.DeleteCategoria(categoriaId);
-                RefreshDataGridView();
+                if (MessageBox.Show("¿Estás seguro que desea eliminarlo?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    int categoriaId = (int)CategoryDGV.SelectedRows[0].Cells["CategoriaId"].Value;
+                    _categoryRepos.DeleteCategoria(categoriaId);
+                    RefreshDataGridView();
+                }
+                      
             }
             else
             {
@@ -112,21 +116,6 @@ namespace Wever_s_miniMarket
                     }
                 }
             }
-        }
-
-        private void InitializeDataGridView()
-        {
-            if (CategoryDGV.Columns["Imagen"] == null)
-            {
-                var imageColumn = new DataGridViewImageColumn
-                {
-                    Name = "Imagen",
-                    HeaderText = "Imagen",
-                    ImageLayout = DataGridViewImageCellLayout.Zoom
-                };
-                CategoryDGV.Columns.Add(imageColumn);
-            }
-            CategoryDGV.AutoGenerateColumns = false; // Evitar que se generen columnas automáticas
         }
 
     }
